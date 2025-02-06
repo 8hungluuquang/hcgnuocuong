@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime Night Bar</title>
+    <title>Anime Night Bar - Tìm Đồ Uống Hoàn Hảo</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
@@ -21,16 +21,14 @@
             scroll-behavior: smooth;
         }
 
-        /* 📌 Background theo ảnh bạn gửi */
+        /* 📌 Background gradient mềm mại */
         body {
-            background: url('https://itadakimasuanime.wordpress.com/wp-content/uploads/2018/12/Cocktails-The-Night-is-Short-Walk-on-Girl.png') 
-                no-repeat center center/cover;
-            background-attachment: fixed;
+            background: linear-gradient(to bottom, #0c0c0c, #1c1c1c);
             color: white;
             overflow-x: hidden;
         }
 
-        /* 📌 Thanh menu (navbar) */
+        /* 📌 Navbar chuyên nghiệp */
         .navbar {
             position: fixed;
             top: 10px;
@@ -39,24 +37,26 @@
             display: flex;
             gap: 20px;
             z-index: 100;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 10px 20px;
-            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 12px 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         .navbar a {
             color: white;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
-            transition: opacity 0.3s ease-in-out;
+            transition: opacity 0.3s ease-in-out, color 0.3s;
         }
 
         .navbar a:hover {
-            opacity: 0.7;
+            opacity: 1;
+            color: #ffbf00; /* Hiệu ứng vàng sáng khi hover */
         }
 
-        /* 📌 Cấu trúc từng phần */
+        /* 📌 Mục chọn đồ uống */
         .section {
             height: 100vh;
             display: flex;
@@ -67,9 +67,8 @@
             padding: 20px;
         }
 
-        /* 📌 Glassmorphism (hiệu ứng kính mờ) */
         .glass-card {
-            width: 80%;
+            width: 90%;
             max-width: 900px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -80,72 +79,45 @@
             transform: translateY(50px);
         }
 
-        /* 📌 Hiệu ứng chữ phát sáng (Neon Glow) */
-        h1 {
-            font-size: 40px;
-            font-weight: bold;
-            text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.5);
-            animation: glow 1.5s infinite alternate;
+        /* 📌 Button mềm mại */
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 15px;
         }
 
-        @keyframes glow {
-            0% { text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.5); }
-            100% { text-shadow: 5px 5px 15px rgba(255, 255, 255, 0.8); }
-        }
-
-        /* 📌 Button đẹp hơn */
-        .btn {
-            background: #ff4081;
-            color: white;
+        .buttons button {
+            flex: 1;
+            min-width: 120px;
             padding: 12px 20px;
-            border: none;
-            border-radius: 20px;
             font-size: 16px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(to right, #ffbf00, #ff9000);
+            color: white;
             cursor: pointer;
-            transition: 0.3s;
+            transition: all 0.3s ease, transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
-        .btn:hover {
-            background: #ff79a8;
+        .buttons button:hover {
             transform: scale(1.1);
+            background: linear-gradient(to right, #ff9000, #ff6000);
         }
 
-        /* 📌 Review Section */
-        .review-container {
-            width: 80%;
-            max-width: 900px;
+        /* 📌 Hiển thị kết quả */
+        .result {
             text-align: center;
-            padding: 20px;
-            backdrop-filter: blur(8px);
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .review-container textarea {
-            width: 100%;
-            height: 100px;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            resize: none;
-            font-size: 16px;
-        }
-
-        .review-container button {
-            margin-top: 10px;
-        }
-
-        .reviews {
             margin-top: 20px;
-            text-align: left;
         }
 
-        .review {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 10px;
+        .result p {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffeb3b;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>
@@ -162,64 +134,35 @@
     <!-- Home Section -->
     <div id="home" class="section">
         <div class="glass-card">
-            <h1>Welcome to the Anime Night Bar</h1>
-            <p>Experience the magic of cocktails under the neon lights.</p>
-            <button class="btn">Explore Drinks</button>
-        </div>
-    </div>
+            <h2>✨ Tìm Đồ Uống Hoàn Hảo ✨</h2>
+            <p>Chọn tiêu chí của bạn, chúng tôi sẽ gợi ý loại nước uống phù hợp!</p>
 
-    <!-- About Section -->
-    <div id="about" class="section">
-        <div class="glass-card">
-            <h2>ABOUT</h2>
-            <p>We serve the finest cocktails inspired by anime aesthetics.</p>
-        </div>
-    </div>
+            <!-- Chọn Giá -->
+            <h3>💰 Giá:</h3>
+            <div class="buttons">
+                <button onclick="setCriteria('price', 'cheap')">Rẻ</button>
+                <button onclick="setCriteria('price', 'medium')">Trung bình</button>
+                <button onclick="setCriteria('price', 'expensive')">Đắt</button>
+            </div>
 
-    <!-- Review Section -->
-    <div id="reviews" class="section">
-        <div class="review-container">
-            <h2>Leave a Review</h2>
-            <textarea id="reviewInput" placeholder="Write your review here..."></textarea>
-            <button class="btn" onclick="addReview()">Submit</button>
+            <!-- Chọn Độ Lành Mạnh -->
+            <h3>🍏 Độ Lành Mạnh:</h3>
+            <div class="buttons">
+                <button onclick="setCriteria('health', 'healthy')">Tốt cho sức khỏe</button>
+                <button onclick="setCriteria('health', 'normal')">Bình thường</button>
+            </div>
 
-            <h3>Customer Reviews</h3>
-            <div id="reviewList" class="reviews"></div>
+            <!-- Hiển thị kết quả -->
+            <div class="result">
+                <h3>🥤 Gợi ý đồ uống:</h3>
+                <p id="suggestion">Hãy chọn các tiêu chí!</p>
+            </div>
         </div>
     </div>
 
     <script>
-        // 📌 Hiệu ứng cuộn mượt
-        gsap.from(".glass-card", {
-            scrollTrigger: {
-                trigger: ".glass-card",
-                start: "top 80%",
-                toggleActions: "play none none reverse"
-            },
-            opacity: 0,
-            y: 50,
-            duration: 1
-        });
-
-        gsap.from(".navbar a", { opacity: 0, y: -10, stagger: 0.2, duration: 1 });
-
-        gsap.from("h1", { opacity: 0, scale: 0.8, duration: 1.2, ease: "elastic" });
-
-        // 📌 Chức năng đánh giá
-        function addReview() {
-            let reviewText = document.getElementById("reviewInput").value;
-            if (reviewText.trim() === "") {
-                alert("Please enter a review!");
-                return;
-            }
-
-            let reviewList = document.getElementById("reviewList");
-            let newReview = document.createElement("div");
-            newReview.classList.add("review");
-            newReview.textContent = reviewText;
-            reviewList.prepend(newReview);
-
-            document.getElementById("reviewInput").value = "";
+        function setCriteria(type, value) {
+            document.getElementById('suggestion').textContent = "🥤 Gợi ý: Trà xanh matcha 🍵";
         }
     </script>
 
